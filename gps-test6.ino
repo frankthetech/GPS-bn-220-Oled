@@ -3,24 +3,24 @@
 ******************************************************************************/
 #include <SPI.h>
 #include <Wire.h>
-#include <TinyGPS++.h> // Include the TinyGPS++ library
+#include <TinyGPS++.h> // TinyGPS++ library
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
 #define OLED_RESET -1
 Adafruit_SSD1306 display(OLED_RESET);
 
-TinyGPSPlus tinyGPS; // Create a TinyGPSPlus object
+TinyGPSPlus tinyGPS; // TinyGPSPlus object
 
 #define GPS_BAUD 9600 // GPS module baud rate. bn-220 = 9600.
 
-#define gpsPort Serial1  // Alternatively, use Serial1 on the Leonardo
+#define gpsPort Serial1
 
 #define SerialMonitor Serial
 
 void setup()
 {
-  // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
+  // by default, we'll generate the high voltage from the 3.3v line internally
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C); 
   SerialMonitor.begin(9600);
   gpsPort.begin(GPS_BAUD);
